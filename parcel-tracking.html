@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TunaTrack | Track Parcels Smarter</title>
+<meta name="description" content="TunaTrack: Real-time parcel tracking for shuttle and logistics companies in Kenya. Keep your customers informed at every step.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B35',secondary:'#FFB563'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-gradient {
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+}
+.feature-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
+}
+.pricing-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1);
+}
+.testimonial-card {
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: #4F46E5;
+box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+.faq-item[open] .faq-icon {
+transform: rotate(180deg);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-gray-100">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Left: Logo + Nav -->
+<div class="flex items-center space-x-8">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
+<nav class="hidden md:flex items-center space-x-1" aria-label="Main navigation">
+<a href="#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
+<a href="#how-it-works" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">How It Works</a>
+<a href="#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
+<a href="#faq" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">FAQ</a>
+<a href="#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Contact</a>
+<a href="track.html" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Track Parcel</a>
+</nav>
+</div>
+<!-- Right: Auth Buttons -->
+<div class="hidden md:flex items-center space-x-2">
+  <span class="relative group">
+    <a href="#" tabindex="-1"
+      class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+      aria-disabled="true">
+      Log In
+    </a>
+    <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+      Coming soon – We are in pilot phase
+    </span>
+  </span>
+  <span class="relative group">
+    <a href="#" tabindex="-1"
+      class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+      aria-disabled="true" id="sign-up-button">
+      Sign Up
+    </a>
+    <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+      Coming soon – We are in pilot phase
+    </span>
+  </span>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+<button type="button" id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center text-gray-700" aria-label="Open mobile menu">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+<div class="px-2 pt-2 pb-3 space-y-1">
+<a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
+<a href="#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
+<a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
+<a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
+<a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
+<a href="track.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Track Parcel</a>
+
+<div class="pt-4 pb-3 border-t border-gray-200">
+      <span class="relative group block">
+        <a href="#" tabindex="-1"
+          class="block w-full px-4 py-2 text-center text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+          aria-disabled="true">
+          Log In
+        </a>
+        <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+          Coming soon – We are in pilot phase
+        </span>
+      </span>
+      <span class="relative group block">
+        <a href="#" tabindex="-1"
+          class="block w-full mt-3 px-4 py-2 text-center bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+          aria-disabled="true">
+          Sign Up
+        </a>
+        <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+          Coming soon – We are in pilot phase
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=modern%20iPad%20or%20computer%20screen%20displaying%20world%20map%20with%20parcel%20tracking%20metrics%20and%20data%20visualization.%20Professional%20dashboard%20showing%20real-time%20parcel%20statistics:%20Parcels%20Sent%2C%20Pending%20Collection%2C%20In%20Transit.%20Clean%20interface%20with%20orange%20accent%20colors.%20Minimalist%20design%20with%20tracking%20routes%20highlighted%20on%20map.%20High-end%203D%20visualization&width=1600&height=800&seq=hero2&orientation=landscape');" class="absolute inset-0 bg-cover bg-center bg-no-repeat"></div>
+<div class="relative min-h-[600px] flex items-center">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<div class="hero-gradient py-16 md:py-24 px-6 md:px-12 rounded-lg max-w-xl">
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Radar for Every Parcel Delivery</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8">The complete parcel tracking solution for logistic and transport companies in Kenya. Real-time updates for your customers at every step.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#pricing" class="px-6 py-3 bg-primary text-white rounded-button text-center font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Start Tracking Smarter</a>
+<a href="#demo" class="px-6 py-3 border border-gray-300 bg-white text-gray-700 rounded-button text-center font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+<i class="ri-play-circle-line ri-lg mr-2"></i> Watch Demo
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Section
+<section class="py-8 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<p class="text-center text-gray-500 mb-6">Trusted by leading shuttle services across Kenya</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+<div class="flex items-center text-gray-400">
+<i class="ri-bus-line ri-2x mr-2"></i>
+<span class="font-medium">EasyCoach</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-bus-2-line ri-2x mr-2"></i>
+<span class="font-medium">Modern Coast</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-taxi-line ri-2x mr-2"></i>
+<span class="font-medium">Guardian</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-car-line ri-2x mr-2"></i>
+<span class="font-medium">Tahmeed</span>
+</div>
+<div class="flex items-center text-gray-400">
+<i class="ri-truck-line ri-2x mr-2"></i>
+<span class="font-medium">Simba Coach</span>
+</div>
+</div>
+</div>
+</section> -->
+<!-- Features Section -->
+<section id="features" class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
+<p class="text-lg text-gray-600">Our platform is designed to make parcel management easy, efficient, and affordable, while keeping your customers informed at every step.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-map-pin-time-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Real-time Tracking</h3>
+<p class="text-gray-600">Keep both senders and recipients informed with live updates on parcel location and status throughout the delivery journey.</p>
+</div>
+<!-- Feature 2 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-file-list-3-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Easy Registration</h3>
+<p class="text-gray-600">Register parcels quickly with our simple form. Capture all essential details in seconds and generate tracking numbers instantly.</p>
+</div>
+<!-- Feature 3 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-refresh-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Status Updates</h3>
+<p class="text-gray-600">Automatically update parcel status: Registered, In Transit, Delivered, or Pending Collection with timestamps.</p>
+</div>
+<!-- Feature 4 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-notification-3-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Pickup Alerts</h3>
+<p class="text-gray-600">Send automated SMS notifications to recipients when parcels are ready for collection.</p>
+</div>
+<!-- Feature 5 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-bar-chart-grouped-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Visual Reports</h3>
+<p class="text-gray-600">Get insightful analytics on parcels delivered, in transit, or uncollected with easy-to-understand visual dashboards.</p>
+</div>
+<!-- Feature 6 -->
+<div class="feature-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
+<i class="ri-smartphone-line ri-lg"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Mobile-First Design</h3>
+<p class="text-gray-600">Access the system from any device with our responsive interface designed for both office and on-the-go management.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+<p class="text-lg text-gray-600">Streamline your parcel management with our intuitive process.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+<!-- Step 1 -->
+<div class="group bg-white p-8 rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-xl mr-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<i class="ri-send-plane-fill ri-lg"></i>
+</div>
+<span class="text-4xl font-bold text-gray-200 group-hover:text-primary/20 transition-colors">01</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Send Parcel</h3>
+<p class="text-gray-600">Quick and easy parcel registration with instant tracking number generation. Perfect for busy shuttle services.</p>
+</div>
+<!-- Step 2 -->
+<div class="group bg-white p-8 rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-xl mr-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<i class="ri-map-pin-time-fill ri-lg"></i>
+</div>
+<span class="text-4xl font-bold text-gray-200 group-hover:text-primary/20 transition-colors">02</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Keep Clients Updated</h3>
+<p class="text-gray-600">Automated SMS updates keep your customers informed at every stage of delivery.</p>
+</div>
+<!-- Step 3 -->
+<div class="group bg-white p-8 rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+<div class="flex items-center mb-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-xl mr-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<i class="ri-line-chart-fill ri-lg"></i>
+</div>
+<span class="text-4xl font-bold text-gray-200 group-hover:text-primary/20 transition-colors">03</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-3">Visualize Reports</h3>
+<p class="text-gray-600">Get powerful insights into your operations with detailed analytics and visual reporting tools.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Demo Section -->
+<section id="demo" class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">See It In Action</h2>
+<p class="text-lg text-gray-600">Watch how our platform simplifies parcel tracking and management for shuttle services.</p>
+</div>
+<div class="relative max-w-4xl mx-auto rounded-xl overflow-hidden shadow-xl">
+  <div class="bg-gray-900" style="height: 500px;">
+    <!-- Sample video embed -->
+    <iframe 
+      src="https://www.youtube.com/embed/qqAYW7uxErI" 
+      title="TunaTrack Demo Video" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen
+      class="w-full h-full">
+    </iframe>
+  </div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section id="pricing" class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+<!-- <p class="text-lg text-gray-600">Choose the plan that works best for your business needs. All plans include our core tracking features.</p> -->
+ <p class="text-lg text-gray-600">We will be offering tiered pricing that allows you to choose the best fit for your business but rest assured all plans will be inclusive of our core tracking features.</p>
+ <p class="text-lg text-gray-600">We are in the pilot phase but do stay tuned for more details on our pricing structure.</p>
+</div>
+<!-- Center the pricing card using flex -->
+<div class="flex justify-center items-center w-full">
+  <div class="pricing-card bg-white p-8 rounded-2xl border-2 border-primary shadow-lg flex flex-col relative max-w-md w-full text-center">
+    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-xs font-semibold rounded-bl-lg rounded-tr-2xl shadow">Popular</div>
+    <div class="mb-8">
+      <div class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4 mx-auto">
+        <i class="ri-vip-crown-line ri-2x"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-2">Pilot Phase</h3>
+      <div class="mb-2">
+        <span class="text-4xl font-extrabold text-primary">FREE</span>
+      </div>
+      <p class="text-gray-500 text-sm mb-2">Try all features at no cost during our pilot phase</p>
+      <p class="text-gray-600 text-base">Perfect for businesses wanting to experience TunaTrack before launch.</p>
+    </div>
+    <ul class="space-y-4 mb-8 text-left">
+      <li class="flex items-start">
+        <i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+        <span>Realtime tracking with updates sent to sender & recipient</span>
+      </li>
+      <!-- <li class="flex items-start">
+        <i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+        <span>Up to 6 alerts per parcel</span>
+      </li> -->
+      <li class="flex items-start">
+        <i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+        <span>Support provided</span>
+      </li>
+      <li class="flex items-start">
+        <i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+        <span>Notifications for parcels pending collection after 5 days</span>
+      </li>
+      <li class="flex items-start">
+        <i class="ri-check-line text-green-500 mt-1 mr-2"></i>
+        <span>Reporting features</span>
+      </li>
+    </ul>
+    <a href="#contact" class="w-full px-6 py-3 bg-primary text-white rounded-button font-semibold text-center hover:bg-primary/90 transition-colors">Get Started</a>
+  </div>
+</div>
+<!-- ...existing code... -->
+</section>
+<!-- Testimonials Section -->
+<!-- <section class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+<p class="text-lg text-gray-600">Hear from shuttle services that have transformed their parcel management with our platform.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">-->
+<!-- Testimonial 1 -->
+<!-- <div class="testimonial-card bg-white p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"This system has completely transformed how we handle parcels. Our customers love getting real-time updates, and we've reduced uncollected parcels by 70% thanks to the automated alerts."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mr-4">
+<i class="ri-user-line text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">James Mwangi</h4>
+<p class="text-sm text-gray-500">Operations Manager, EasyCoach</p>
+</div>
+</div>
+</div> -->
+<!-- Testimonial 2 -->
+<!-- <div class="testimonial-card bg-white p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"The reporting features have given us incredible insights into our operations. We can now see which routes have the most parcels and optimize our logistics accordingly. Worth every shilling!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mr-4">
+<i class="ri-user-line text-gray-500"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Wanjiku Kamau</h4>
+<p class="text-sm text-gray-500">Director, Modern Coast Express</p>
+</div>
+</div>
+</div> -->
+<!-- Testimonial 3 -->
+<!-- <div class="testimonial-card bg-white p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"Customer complaints about lost parcels have dropped by 90% since we implemented this system. The WhatsApp notifications are a game-changer for our rural customers who rely on our service."</p>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Daniel Ochieng</h4>
+<p class="text-sm text-gray-500">CEO, Guardian Shuttle</p>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+<!-- </section> -->
+<!-- Stats Section -->
+<!-- <section class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+<div>
+<div class="text-4xl font-bold text-primary mb-2">0</div>
+<p class="text-gray-600">Businesses Using Our Platform</p>
+</div>
+<div>
+<div class="text-4xl font-bold text-primary mb-2">0</div>
+<p class="text-gray-600">Parcels Tracked Monthly</p>
+</div>
+<div>
+<div class="text-4xl font-bold text-primary mb-2">0%</div>
+<p class="text-gray-600">Reduction in Uncollected Parcels</p>
+</div>
+<div>
+<div class="text-4xl font-bold text-primary mb-2">99.9%</div>
+<p class="text-gray-600">Platform Uptime</p>
+</div>
+</div>
+</div>
+</section> -->
+<!-- FAQ Section -->
+<section id="faq" class="py-16 md:py-24 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+<p class="text-lg text-gray-600">Find answers to common questions about our parcel tracking system.</p>
+</div>
+<div class="max-w-3xl mx-auto">
+<details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">How does the system track parcels?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>Once the parcel is registered into the system, it is assigned a unique tracking number. This number can be used by both staff and customers to monitor the parcel's status at any time. The system sends status updates automatically as updated by the staff during the process.</p>
+</details>
+<details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">How do customers track their parcels?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>Customers can track parcels in multiple ways: through a tracking link sent via SMS, by entering their tracking number on our TunaTrack tracking page, or by calling your office where staff can quickly look up the status.</p>
+</div>
+</details>
+<!-- <details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">What payment methods do you accept?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>We accept M-Pesa payments for all plans. For Enterprise customers, we also offer bank transfer options. All payments are processed securely and receipts are provided immediately.</p>
+</div>
+</details> -->
+<!-- <details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">Can I integrate this with my existing systems?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>Yes, our Enterprise Plan includes custom integration options. We can connect with your existing booking systems, accounting software, or other business tools through our API. Contact our team for specific integration requirements.</p>
+</div>
+</details> -->
+<details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">What is the pilot phase?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>The pilot phase is a one month trial period where we test the system with willing businesses for free. This helps us gather feedback and make improvements before a full-scale launch.</p>
+</div>
+</details>
+<details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">How can my business participate in the pilot phase?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>To participate in the pilot phase, your business can register interest through the <a href="#contact" class="text-primary">contact form</a> or email us and we will be in touch.</p>
+</div>
+</details>
+<details class="faq-item mb-4 bg-white rounded-lg shadow-sm overflow-hidden">
+<summary class="flex items-center justify-between p-6 cursor-pointer">
+<h3 class="text-lg font-medium text-gray-900">What are my costs during the pilot phase?</h3>
+<div class="faq-icon transition-transform duration-200">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</summary>
+<div class="px-6 pb-6 text-gray-600">
+<p>During the pilot phase, there are no costs for participating businesses. This trial period is completely free, allowing you to test the system and provide feedback without any financial commitment.</p>
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Parcel Management?</h2>
+<p class="text-xl text-white/80 mb-8">Join the movement of parcel tracking made easier as we improve client experiences across Kenya with TunaTrack.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="#contact" class="px-8 py-4 bg-white text-primary rounded-button text-center font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Start Tracking Smarter</a>
+<!-- <a href="#contact" class="px-8 py-4 border border-white text-white rounded-button text-center font-medium hover:bg-white/10 transition-colors whitespace-nowrap">Contact Sales</a> -->
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+<p class="text-lg text-gray-600 mb-8">Have questions about our parcel tracking system? Our team is here to help you find the right solution for your business.</p>
+<div class="space-y-6">
+<div class="flex items-start">
+<!-- <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-full mr-4 mt-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-900 mb-1">Our Location</h3>
+<p class="text-gray-600">Kimathi Street, Nairobi, Kenya</p>
+</div> -->
+</div>
+<div class="flex items-start">
+<!-- <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-full mr-4 mt-1">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-900 mb-1">Phone Number</h3>
+<p class="text-gray-600">+254 725 038 602</p>
+</div> -->
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-full mr-4 mt-1">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-900 mb-1">Email Address</h3>
+<p class="text-gray-600">info@tunatrack.co.ke</p>
+</div>
+</div>
+<div class="flex items-start">
+<!-- <div class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-full mr-4 mt-1">
+<i class="ri-time-line"></i>
+</div>
+<div>
+<h3 class="font-medium text-gray-900 mb-1">Business Hours</h3>
+<p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+<p class="text-gray-600">Saturday: 9:00 AM - 1:00 PM</p>
+</div> -->
+</div>
+</div>
+</div>
+<div>
+<form class="bg-gray-50 p-8 rounded-lg" aria-label="Contact form">
+<h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+<input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-primary" placeholder="Your name" aria-required="true">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+<input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-primary" placeholder="Your email" aria-required="true">
+</div>
+</div>
+<div class="mb-6">
+<label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+<input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-primary" placeholder="Your company">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+<textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-primary" placeholder="How can we help you?" aria-required="true"></textarea>
+</div>
+<button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap" aria-label="Send message">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-white pt-16 pb-8">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="mb-4 inline-block">
+  <img src="images/logo/logo-transparent.png" alt="TunaTrack Logo" class="h-16">
+</a>
+<p class="text-gray-400 mb-6">Your Radar for Every Parcel Delivery</p>
+<!-- <div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div> -->
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+<li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<!-- <div>
+<h3 class="text-lg font-semibold mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">API Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+</ul>
+</div> -->
+<div>
+<h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">Stay updated with our latest features and news.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-l focus:ring-primary text-white" placeholder="Your email">
+<button type="submit" class="px-4 py-2 bg-primary text-white rounded-r hover:bg-primary/90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div>
+<!-- <h4 class="text-sm font-medium mb-2">We Accept</h4>
+<div class="flex space-x-3">
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-bank-card-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-visa-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-mastercard-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-paypal-fill text-gray-400"></i>
+</div> -->
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-400 text-sm mb-4 md:mb-0 md:ml-4">© 2025 TunaTrack. All rights reserved.</p>
+    <div class="flex space-x-6 w-full md:w-auto md:justify-end md:ml-auto md:mr-4">
+      <a href="privacy.html" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+      <a href="terms.html" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+      <a href="cookies.html" class="text-gray-400 hover:text-white text-sm transition-colors md:ml-16 md:mr-4">Cookie Policy</a>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Change icon based on menu state
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.className = 'ri-menu-line ri-lg';
+} else {
+icon.className = 'ri-close-line ri-lg';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-menu-line ri-lg';
+});
+});
+});
+</script>
+<script id="faq-script">
+document.addEventListener('DOMContentLoaded', function() {
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+item.addEventListener('toggle', function() {
+const icon = this.querySelector('.faq-icon');
+if (this.open) {
+icon.style.transform = 'rotate(180deg)';
+} else {
+icon.style.transform = 'rotate(0)';
+}
+});
+});
+});
+</script>
+</body>
+</html>

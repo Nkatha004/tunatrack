@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TunaTrack | Track Parcels Smarter</title>
+<meta name="description" content="TunaTrack Privacy Policy: Learn how we collect, use, and protect your information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B35',secondary:'#FFB563'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-gradient {
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+}
+.feature-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
+}
+.pricing-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1);
+}
+.testimonial-card {
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: #4F46E5;
+box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+.faq-item[open] .faq-icon {
+transform: rotate(180deg);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-gray-100">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Left: Logo + Nav -->
+<div class="flex items-center space-x-8">
+<a href="parcel-tracking.html" class="text-3xl font-['Pacifico'] text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
+<nav class="hidden md:flex items-center space-x-1" aria-label="Main navigation">
+<a href="parcel-tracking.html#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
+<a href="parcel-tracking.html#how-it-works" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">How It Works</a>
+<a href="parcel-tracking.html#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
+<a href="parcel-tracking.html#faq" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">FAQ</a>
+<a href="parcel-tracking.html#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Contact</a>
+<a href="track.html" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Track Parcel</a>
+</nav>
+</div>
+<!-- Right: Auth Buttons -->
+<div class="hidden md:flex items-center space-x-2">
+<span class="relative group">
+<a href="#" tabindex="-1"
+  class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+  aria-disabled="true">
+  Log In
+</a>
+<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+  Coming soon – We are in pilot phase
+</span>
+</span>
+<span class="relative group">
+<a href="#" tabindex="-1"
+  class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+  aria-disabled="true" id="sign-up-button">
+  Sign Up
+</a>
+<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+  Coming soon – We are in pilot phase
+</span>
+</span>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+<button type="button" id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center text-gray-700" aria-label="Open mobile menu">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+<div class="px-2 pt-2 pb-3 space-y-1">
+<a href="parcel-tracking.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
+<a href="parcel-tracking.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
+<a href="parcel-tracking.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
+<a href="parcel-tracking.html#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
+<a href="parcel-tracking.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
+<a href="track.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Track Parcel</a>
+
+<div class="pt-4 pb-3 border-t border-gray-200">
+<span class="relative group block">
+<a href="#" tabindex="-1"
+  class="block w-full px-4 py-2 text-center text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+  aria-disabled="true">
+  Log In
+</a>
+<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+  Coming soon – We are in pilot phase
+</span>
+</span>
+<span class="relative group block">
+<a href="#" tabindex="-1"
+  class="block w-full mt-3 px-4 py-2 text-center bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+  aria-disabled="true">
+  Sign Up
+</a>
+<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+  Coming soon – We are in pilot phase
+</span>
+</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Header End -->
+<!-- Main Content -->
+<div class="flex-grow flex items-center justify-center py-12">
+  <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-3xl w-full">
+    <div class="flex items-center mb-6">
+      <i class="ri-shield-user-line text-primary text-3xl mr-3"></i>
+      <h1 class="text-3xl font-bold">Privacy Policy</h1>
+    </div>
+    <p class="mb-4 text-gray-500">Last updated: 25 June 2025</p>
+    <p class="mb-4">TunaTrack values your privacy. This policy explains how we collect, use, and protect your information.</p>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">1. Information We Collect</h2>
+    <ul class="list-disc ml-6 mb-4">
+      <li>Personal details (name, email, company) when you contact us or use our services.</li>
+      <li>Usage data (browser type, pages visited) for analytics.</li>
+    </ul>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">2. How We Use Your Information</h2>
+    <ul class="list-disc ml-6 mb-4">
+      <li>To provide and improve our services.</li>
+      <li>To communicate with you about your account or inquiries.</li>
+      <li>To comply with legal obligations.</li>
+    </ul>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">3. Sharing Your Information</h2>
+    <ul class="list-disc ml-6 mb-4">
+      <li>We do not sell your personal information.</li>
+      <li>We may share data with trusted service providers who help us operate our platform.</li>
+      <li>We may disclose information if required by law.</li>
+    </ul>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">4. Data Security</h2>
+    <p class="mb-4">We use reasonable measures to protect your data, but no system is 100% secure.</p>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">5. Your Rights</h2>
+    <p class="mb-4">You may request access, correction, or deletion of your personal data by contacting us.</p>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">6. Changes to Policy</h2>
+    <p class="mb-4">We may update this policy. Please review it regularly.</p>
+    <h2 class="text-xl font-semibold mt-8 mb-2 text-primary">7. Contact Us</h2>
+    <p class="mb-8">
+      If you have any questions about this Privacy Policy, please contact us at
+      <a href="mailto:info@tunatrack.co.ke" class="text-primary underline hover:text-primary/80">info@tunatrack.co.ke</a>.
+    </p>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="bg-[#1F1F1F] text-white pt-16 pb-8">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="parcel-tracking.html" class="mb-4 inline-block">
+  <img src="images/logo/logo-transparent.png" alt="TunaTrack Logo" class="h-16">
+</a>
+<p class="text-gray-400 mb-6">Your Radar for Every Parcel Delivery</p>
+<!-- <div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div> -->
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+<li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<!-- <div>
+<h3 class="text-lg font-semibold mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">API Documentation</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+</ul>
+</div> -->
+<div>
+<h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">Stay updated with our latest features and news.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-l focus:ring-primary text-white" placeholder="Your email">
+<button type="submit" class="px-4 py-2 bg-primary text-white rounded-r hover:bg-primary/90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div>
+<!-- <h4 class="text-sm font-medium mb-2">We Accept</h4>
+<div class="flex space-x-3">
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-bank-card-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-visa-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-mastercard-fill text-gray-400"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-paypal-fill text-gray-400"></i>
+</div> -->
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-400 text-sm mb-4 md:mb-0 md:ml-4">© 2025 TunaTrack. All rights reserved.</p>
+    <div class="flex space-x-6 w-full md:w-auto md:justify-end md:ml-auto md:mr-4">
+      <a href="privacy.html" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+      <a href="terms.html" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+      <a href="cookies.html" class="text-gray-400 hover:text-white text-sm transition-colors md:ml-16 md:mr-4">Cookie Policy</a>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Change icon based on menu state
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.className = 'ri-menu-line ri-lg';
+} else {
+icon.className = 'ri-close-line ri-lg';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-menu-line ri-lg';
+});
+});
+});
+</script>
+<script id="faq-script">
+document.addEventListener('DOMContentLoaded', function() {
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+item.addEventListener('toggle', function() {
+const icon = this.querySelector('.faq-icon');
+if (this.open) {
+icon.style.transform = 'rotate(180deg)';
+} else {
+icon.style.transform = 'rotate(0)';
+}
+});
+});
+});
+</script>
+</body>
+</html>
