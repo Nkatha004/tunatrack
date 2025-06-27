@@ -19,6 +19,8 @@
     .progress-line { height: 4px; background: #e5e7eb; position: absolute; top: 50%; left: 0; right: 0; z-index: 0; }
     .progress-step.completed { background: #FF6B35; border-color: #FF6B35; color: #fff; }
     .progress-step:not(.completed) { background: #fff; border-color: #e5e7eb; color: #FF6B35; }
+    .font-pacifico {font-family: 'Pacifico', cursive !important;}
+    
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -27,20 +29,19 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <div class="flex items-center space-x-8">
-        <a href="parcel-tracking.html" class="text-3xl font-['Pacifico'] text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
+        <a href="index.html" class="font-pacifico text-3xl text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
         <nav class="hidden md:flex items-center space-x-1" aria-label="Main navigation">
-          <a href="parcel-tracking.html#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
-          <a href="parcel-tracking.html#how-it-works" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">How It Works</a>
-          <a href="parcel-tracking.html#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
-          <a href="parcel-tracking.html#faq" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">FAQ</a>
-          <a href="parcel-tracking.html#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Contact</a>
-          <a href="#" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Track Parcel</a>
+          <a href="index.html#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
+          <a href="index.html#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
+          <a href="index.html#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Contact</a>
+          <a href="track.html" class="px-4 py-2 w-full text-primary font-semibold border-b-2 border-primary hover:border-primary hover:text-primary transition-all text-center">Track Parcel</a>
         </nav>
       </div>
-      <div class="hidden md:flex items-center space-x-2">
-        <span class="relative group">
+      <!-- Right: Auth Buttons -->
+      <div class="hidden md:flex flex-row space-x-4 md:max-w-xs lg:max-w-none ml-auto">
+        <span class="relative group md:w-auto">
           <a href="#" tabindex="-1"
-            class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+            class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none text-center"
             aria-disabled="true">
             Log In
           </a>
@@ -48,9 +49,9 @@
             Coming soon – We are in pilot phase
           </span>
         </span>
-        <span class="relative group">
+        <span class="relative group md:w-auto">
           <a href="#" tabindex="-1"
-            class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
+            class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none text-center"
             aria-disabled="true" id="sign-up-button">
             Sign Up
           </a>
@@ -68,12 +69,12 @@
   </div>
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <a href="parcel-tracking.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
-      <a href="parcel-tracking.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
-      <a href="parcel-tracking.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
-      <a href="parcel-tracking.html#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
-      <a href="parcel-tracking.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
-      <a href="#" class="block px-3 py-2 rounded-md text-base font-semibold text-primary bg-primary/10">Track Parcel</a>
+      <a href="index.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
+      <a href="index.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
+      <a href="index.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
+      <a href="index.html#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
+      <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-semibold border-b-2 border-primary text-primary bg-primary/10">Track Parcel</a>
       <div class="pt-4 pb-3 border-t border-gray-200">
         <span class="relative group block">
           <a href="#" tabindex="-1"
@@ -184,7 +185,7 @@
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 <div>
-<a href="parcel-tracking.html" class="mb-4 inline-block">
+<a href="index.html" class="mb-4 inline-block">
   <img src="images/logo/logo-transparent.png" alt="TunaTrack Logo" class="h-16">
 </a>
 <p class="text-gray-400 mb-6">Your Radar for Every Parcel Delivery</p>
@@ -206,11 +207,11 @@
 <div>
 <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
 <ul class="space-y-2">
-<li><a href="parcel-tracking.html#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-<li><a href="parcel-tracking.html#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
-<li><a href="parcel-tracking.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-<li><a href="parcel-tracking.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-<li><a href="parcel-tracking.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+<li><a href="index.html#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+<li><a href="index.html#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+<li><a href="index.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="index.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+<li><a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
 <li><a href="track.html" class="text-gray-400 hover:text-white transition-colors">Track Parcel</a></li>
 </ul>
 </div>

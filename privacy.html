@@ -44,6 +44,7 @@ input[type="number"]::-webkit-outer-spin-button {
 -webkit-appearance: none;
 margin: 0;
 }
+.font-pacifico {font-family: 'Pacifico', cursive !important;}
 </style>
 </head>
 <body class="bg-gray-50">
@@ -51,43 +52,42 @@ margin: 0;
 <header class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-50 border-b border-gray-100">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center h-20">
-<!-- Left: Logo + Nav -->
-<div class="flex items-center space-x-8">
-<a href="parcel-tracking.html" class="text-3xl font-['Pacifico'] text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
-<nav class="hidden md:flex items-center space-x-1" aria-label="Main navigation">
-<a href="parcel-tracking.html#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
-<a href="parcel-tracking.html#how-it-works" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">How It Works</a>
-<a href="parcel-tracking.html#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
-<a href="parcel-tracking.html#faq" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">FAQ</a>
-<a href="parcel-tracking.html#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Contact</a>
-<a href="track.html" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Track Parcel</a>
-</nav>
-</div>
-<!-- Right: Auth Buttons -->
-<div class="hidden md:flex items-center space-x-2">
-<span class="relative group">
-<a href="#" tabindex="-1"
-  class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none"
-  aria-disabled="true">
-  Log In
-</a>
-<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
-  Coming soon – We are in pilot phase
-</span>
-</span>
-<span class="relative group">
-<a href="#" tabindex="-1"
-  class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none"
-  aria-disabled="true" id="sign-up-button">
-  Sign Up
-</a>
-<span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
-  Coming soon – We are in pilot phase
-</span>
-</span>
-</div>
-<!-- Mobile menu button -->
-<div class="md:hidden flex items-center">
+  <div class="flex items-center space-x-8">
+    <a href="index.html" class="font-pacifico text-3xl text-primary tracking-tight drop-shadow-sm">TunaTrack</a>
+    <nav class="hidden md:flex items-center space-x-1" aria-label="Main navigation">
+      <a href="index.html#features" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Features</a>
+      <a href="index.html#pricing" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all">Pricing</a>
+      <a href="index.html#contact" class="px-4 py-2 text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all hidden lg:inline">Contact</a>
+      <a href="track.html" class="px-4 py-2 w-full text-gray-700 font-medium border-b-2 border-transparent hover:border-primary hover:text-primary transition-all text-center">Track Parcel</a>
+      <!-- Hide these on md, show on lg+ -->
+      <!-- <a href="index.html#how-it-works" ...>How It Works</a> -->
+      <!-- <a href="index.html#faq" ...>FAQ</a> -->
+    </nav>
+  </div>
+  <div class="hidden md:flex flex-row space-x-4 md:max-w-xs lg:max-w-none ml-auto">
+    <span class="relative group md:w-auto">
+      <a href="#" tabindex="-1"
+        class="px-4 py-2 text-primary border border-primary rounded-button hover:bg-primary hover:text-white transition-colors opacity-60 cursor-not-allowed pointer-events-none text-center"
+        aria-disabled="true">
+        Log In
+      </a>
+      <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+        Coming soon – We are in pilot phase
+      </span>
+    </span>
+    <span class="relative group md:w-auto">
+      <a href="#" tabindex="-1"
+        class="px-4 py-2 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors opacity-60 cursor-not-allowed pointer-events-none text-center"
+        aria-disabled="true" id="sign-up-button">
+        Sign Up
+      </a>
+      <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 whitespace-nowrap">
+        Coming soon – We are in pilot phase
+      </span>
+    </span>
+  </div>
+  <!-- Mobile menu button -->
+  <div class="md:hidden flex items-center">
 <button type="button" id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center text-gray-700" aria-label="Open mobile menu">
 <i class="ri-menu-line ri-lg"></i>
 </button>
@@ -97,12 +97,12 @@ margin: 0;
 <!-- Mobile menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
 <div class="px-2 pt-2 pb-3 space-y-1">
-<a href="parcel-tracking.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
-<a href="parcel-tracking.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
-<a href="parcel-tracking.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
-<a href="parcel-tracking.html#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
-<a href="parcel-tracking.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
+<a href="index.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Features</a>
+<a href="index.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Pricing</a>
+<a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Contact</a>
 <a href="track.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Track Parcel</a>
+<a href="index.html#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">How It Works</a>
+<a href="index.html#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">FAQ</a>
 
 <div class="pt-4 pb-3 border-t border-gray-200">
 <span class="relative group block">
@@ -174,7 +174,7 @@ margin: 0;
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 <div>
-<a href="parcel-tracking.html" class="mb-4 inline-block">
+<a href="index.html" class="mb-4 inline-block">
   <img src="images/logo/logo-transparent.png" alt="TunaTrack Logo" class="h-16">
 </a>
 <p class="text-gray-400 mb-6">Your Radar for Every Parcel Delivery</p>
