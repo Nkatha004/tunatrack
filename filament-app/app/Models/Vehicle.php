@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Company;
+use App\Utils\AppUtils;
 
 class Vehicle extends Model
 {
@@ -23,9 +24,12 @@ class Vehicle extends Model
     {
         parent::boot();
 
-        static::created(function ($model) {
+        static::creating(function ($model) {
             $model->created_by = auth()->id();
-            $model->saveQuietly();
+            // Check if logged-in user is not admin, then assign their company
+            if (!AppUtils::isAdmin()) {
+                $model->company_id = auth()->user()->company_id;
+            }
         });
 
         static::updated(function ($model) {
