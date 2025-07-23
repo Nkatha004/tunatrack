@@ -54,5 +54,12 @@ class PermissionsSeeder extends Seeder
         Permission::findOrCreate(AppPermissions::UPDATE_OFFICES_PERMISSION);
         Permission::findOrCreate(AppPermissions::DELETE_OFFICES_PERMISSION);
         Permission::findOrCreate(AppPermissions::RESTORE_OFFICES_PERMISSION);
+
+        // vehicles
+        Permission::findOrCreate(AppPermissions::CREATE_VEHICLES_PERMISSION);
+        Permission::findOrCreate(AppPermissions::READ_VEHICLES_PERMISSION);
+        Permission::findOrCreate(AppPermissions::UPDATE_VEHICLES_PERMISSION);
+        Permission::findOrCreate(AppPermissions::DELETE_VEHICLES_PERMISSION);
+        Permission::findOrCreate(AppPermissions::RESTORE_VEHICLES_PERMISSION);
     }
 }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OnboardingWelcome;
 use Filament\Notifications\Notification;
+use App\Utils\AppUtils;
 
 class User extends Authenticatable implements Auditable
 {
@@ -71,6 +72,11 @@ class User extends Authenticatable implements Auditable
             $user->password = Hash::make($password);
             $user->created_by = auth()->id();
 
+            // Check if logged-in user is not admin, then assign their company
+            if (!AppUtils::isAdmin()) {
+                $user->company_id = auth()->user()->company_id;
+            }
+
             if($user->email) {
                 // Send welcome email
                 Mail::to($user->email)->send(new OnboardingWelcome($user->name)); 
@@ -81,8 +87,6 @@ class User extends Authenticatable implements Auditable
                     ->success()
                     ->send();
             }
-
-            $user->name = $user->name.' Admin';
             // else {
             //     // TODO: Send SMS with the password, after SMS service is set up
             // }

@@ -15,5 +15,6 @@ class AppRoleSeeder extends Seeder
     {
         AppRole::findOrCreate('manager');
         AppRole::findOrCreate('agent');
+        AppRole::findOrCreate('driver');
     }
 }

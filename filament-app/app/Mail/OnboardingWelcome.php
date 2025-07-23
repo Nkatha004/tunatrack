@@ -19,7 +19,9 @@ class OnboardingWelcome extends Mailable
      */
     public function __construct($companyName)
     {
-        $this->companyName = $companyName;
+        $words = explode(' ', $companyName);
+        array_pop($words); // Remove the last element
+        $this->companyName = implode(' ', $words);
         $this->loginUrl = config('app.url') . '/admin/login';
     }
 

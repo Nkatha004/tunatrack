@@ -115,7 +115,7 @@ class CompanyResource extends Resource
                     ->sortable()
                     ->label('Town'),
 
-                 Tables\Columns\TextColumn::make('createdBy.name')
+                Tables\Columns\TextColumn::make('createdBy.name')
                     ->sortable()
                     ->numeric()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -150,6 +150,7 @@ class CompanyResource extends Resource
         return [
             RelationManagers\OfficesRelationManager::class,
             RelationManagers\UsersRelationManager::class,
+            RelationManagers\VehiclesRelationManager::class,
         ];
     }
 

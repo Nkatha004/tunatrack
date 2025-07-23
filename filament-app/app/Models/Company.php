@@ -34,7 +34,7 @@ class Company extends Model implements Auditable
 
         static::created(function ($model) {
             $user = User::create([
-                'name' => $model->name,
+                'name' => $model->name.' Admin',
                 'email' => $model->email,
                 'phone_number' => $model->phone_number,
                 'company_id' => $model->id,
@@ -67,5 +67,10 @@ class Company extends Model implements Auditable
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class);
     }
 }

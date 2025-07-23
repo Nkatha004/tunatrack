@@ -50,8 +50,11 @@ class UserResource extends Resource
                     ->required(),
                 Forms\Components\Select::make("roles")
                     ->label("Role")
-                    ->relationship('roles', 'name')
-                    ->options(AppRole::all()->pluck('name', 'id'))
+                    ->relationship('roles', 'name', fn (Builder $query) => 
+                        auth()->user()->hasRole('admin') 
+                        ? $query 
+                        : $query->where('name', '!=', 'admin'))
+                    // ->options(AppRole::all()->pluck('name', 'id'))
                     ->preload()
                     ->required(),
             ]);

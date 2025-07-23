@@ -38,4 +38,11 @@ class AppPermissions
     const UPDATE_OFFICES_PERMISSION = 'update-offices';
     const DELETE_OFFICES_PERMISSION = 'delete-offices';
     const RESTORE_OFFICES_PERMISSION = 'restore-offices';
+
+    // vehicles permissions
+    const CREATE_VEHICLES_PERMISSION = 'create-vehicles';
+    const READ_VEHICLES_PERMISSION = 'read-vehicles';
+    const UPDATE_VEHICLES_PERMISSION = 'update-vehicles';
+    const DELETE_VEHICLES_PERMISSION = 'delete-vehicles';
+    const RESTORE_VEHICLES_PERMISSION = 'restore-vehicles';
 }
