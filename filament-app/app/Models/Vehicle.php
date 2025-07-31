@@ -5,15 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Company;
 use App\Utils\AppUtils;
+use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 
-class Vehicle extends Model
+class Vehicle extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable, HasFactory;
+
     protected $fillable = [
         'registration_number',
         'make',
         'model',
         'color',
         'company_id',
+        'driver_id',
+        'created_at',
+        'updated_at',
         'created_by',
         'updated_by',
         'deleted_by',
@@ -47,5 +55,12 @@ class Vehicle extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(User::class, 'driver_id')->whereHas('roles', function ($query) {
+            $query->where('name', 'driver');
+        });
     }
 }

@@ -9,6 +9,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Models\User;
 
 class VehiclesRelationManager extends RelationManager
 {
@@ -33,6 +34,16 @@ class VehiclesRelationManager extends RelationManager
                     ->nullable()
                     ->maxLength(15)
                     ->label('Color'),
+                Forms\Components\Select::make('driver_id')
+                    ->label('Driver')
+                    ->relationship('driver', 'name', function ($query) {
+                        $query->where('company_id', $this->ownerRecord->id)->withoutTrashed();
+                        
+                    })
+                    ->nullable()
+                    ->searchable()
+                    ->preload()
+                    ->placeholder('Select a driver')
             ]);
     }
 
@@ -43,6 +54,10 @@ class VehiclesRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('registration_number')
                     ->label('Registration Number')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('driver.name')
+                    ->label('Driver')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('make')

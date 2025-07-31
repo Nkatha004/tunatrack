@@ -98,6 +98,8 @@ class User extends Authenticatable implements Auditable
         });
 
         static::deleting(function ($user) {
+            $user->vehicle()->update(['driver_id' => null]);
+            
             $user->deleted_by = auth()->id();
             $user->deleted_at = now();
             $user->save();
@@ -122,6 +124,11 @@ class User extends Authenticatable implements Auditable
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function vehicle()
+    {
+        return $this->hasOne(Vehicle::class, 'driver_id');
     }
     
 }
