@@ -28,12 +28,16 @@ class VehicleImporter extends Importer
 
     public function resolveRecord(): ?Vehicle
     {
-        // return Vehicle::firstOrNew([
-        //     // Update existing records, matching them by `$this->data['column_name']`
-        //     'email' => $this->data['email'],
-        // ]);
+        $vehicle = new Vehicle();
 
-        return new Vehicle();
+        $vehicle->registration_number = $this->data['registration_number'];
+        $vehicle->make = $this->data['make'] ?? null;
+        $vehicle->model = $this->data['model'] ?? null;
+        $vehicle->color = $this->data['color'] ?? null;
+
+        $vehicle->company_id = $this->options['company_id'];
+
+        return $vehicle;
     }
 
     public static function getCompletedNotificationBody(Import $import): string

@@ -33,7 +33,7 @@ class UserImporter extends Importer
         $user->name = $this->data['name'];
         $user->email = $this->data['email'] ?? null;
         $user->phone_number = $this->data['phone_number'];
-        $user->company_id = $this->options['company_id'] ?? null;
+        $user->company_id = $this->options['company_id'];
         
         return $user;
     }

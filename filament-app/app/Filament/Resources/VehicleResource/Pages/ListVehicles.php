@@ -16,7 +16,10 @@ class ListVehicles extends ListRecords
         return [
             Actions\CreateAction::make(),
             Actions\ImportAction::make()
-                ->importer(VehicleImporter::class),
+                ->importer(VehicleImporter::class)
+                ->options([
+                    'company_id' => auth()->user()->company_id,
+                ]),
         ];
     }
 }

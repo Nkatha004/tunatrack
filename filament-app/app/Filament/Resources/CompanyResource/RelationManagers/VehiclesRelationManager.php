@@ -10,6 +10,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\User;
+use App\Filament\Imports\VehicleImporter;
 
 class VehiclesRelationManager extends RelationManager
 {
@@ -98,6 +99,11 @@ class VehiclesRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
+                Tables\Actions\ImportAction::make()
+                    ->importer(VehicleImporter::class)
+                    ->options([
+                        'company_id' => $this->getOwnerRecord()->id,
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
