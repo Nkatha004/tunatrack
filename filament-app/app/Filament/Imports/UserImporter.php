@@ -6,6 +6,7 @@ use App\Models\User;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
+use App\Utils\AppUtils;
 
 class UserImporter extends Importer
 {
@@ -27,12 +28,14 @@ class UserImporter extends Importer
 
     public function resolveRecord(): ?User
     {
-        // return User::firstOrNew([
-        //     // Update existing records, matching them by `$this->data['column_name']`
-        //     'email' => $this->data['email'],
-        // ]);
+        $user = new User();
 
-        return new User();
+        $user->name = $this->data['name'];
+        $user->email = $this->data['email'] ?? null;
+        $user->phone_number = $this->data['phone_number'];
+        $user->company_id = $this->options['company_id'] ?? null;
+        
+        return $user;
     }
 
     public static function getCompletedNotificationBody(Import $import): string

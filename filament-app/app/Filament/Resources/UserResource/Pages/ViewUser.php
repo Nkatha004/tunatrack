@@ -14,6 +14,7 @@ class ViewUser extends ViewRecord
     {
         return [
             Actions\EditAction::make(),
+            Actions\DeleteAction::make()->requiresConfirmation("Are you sure you want to delete this record?"),
         ];
     }
 }

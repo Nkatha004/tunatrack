@@ -9,6 +9,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\AppRole;
+use App\Filament\Imports\UserImporter;
 
 class UsersRelationManager extends RelationManager
 {
@@ -74,7 +75,12 @@ class UsersRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->label('Add User')
+                    ->label('Add User'),
+                Tables\Actions\ImportAction::make()
+                    ->importer(UserImporter::class)
+                    ->options([
+                        'company_id' => $this->getOwnerRecord()->id,
+                    ]),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

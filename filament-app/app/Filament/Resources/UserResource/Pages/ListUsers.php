@@ -16,7 +16,10 @@ class ListUsers extends ListRecords
         return [
             Actions\CreateAction::make(),
             Actions\ImportAction::make() 
-                ->importer(UserImporter::class),
+                ->importer(UserImporter::class)
+                ->options([
+                    'company_id' => auth()->user()->company_id,
+                ]),
         ];
     }
 }

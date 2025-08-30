@@ -68,6 +68,7 @@ class User extends Authenticatable implements Auditable
         parent::boot();
 
         static::creating(function ($user) {
+            $dryRun = true; //comment out 
             $password = Str::random(10);
             $user->password = Hash::make($password);
             $user->created_by = auth()->id();
@@ -77,7 +78,7 @@ class User extends Authenticatable implements Auditable
                 $user->company_id = auth()->user()->company_id;
             }
 
-            if($user->email) {
+            if($user->email && !$dryRun) {
                 // Send welcome email
                 Mail::to($user->email)->send(new OnboardingWelcome($user->name)); 
 
