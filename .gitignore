@@ -1,0 +1,39 @@
+# OS / editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies
+node_modules/
+vendor/
+
+# Local env and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Build output
+public/build/
+public/hot
+storage/*.key
+storage/logs/
+
+# Laravel caches
+/bootstrap/cache/*.php
+/storage/*.key
+/storage/pail/
+/vendor/
+
+# Logs
+*.log
+
+# Local DB / generated files
+*.sqlite
+*.sqlite3
